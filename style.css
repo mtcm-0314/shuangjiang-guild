@@ -1311,19 +1311,19 @@ img.loaded {
     background-clip: text;
     animation: rainbow-flow 3s ease infinite;
     font-weight: 700;
-    position: relative;
+}
+
+/* 详情页名字后面的星星 */
+.member-info .special-member-name::after {
+    content: ' ⭐';
+    -webkit-text-fill-color: initial;
+    animation: star-spin 2s linear infinite;
     display: inline-block;
 }
 
-.special-member-name::after {
-    content: '⭐';
-    position: absolute;
-    right: -25px;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-text-fill-color: initial;
-    animation: star-spin 2s linear infinite;
-    font-size: 0.8em;
+/* 卡片里的名字不需要星星，避免溢出 */
+.member-card .special-member-name::after {
+    content: none;
 }
 
 /* 薯薯条介绍文字渐变特效 */
