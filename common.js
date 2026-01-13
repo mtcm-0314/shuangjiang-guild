@@ -136,4 +136,19 @@ document.addEventListener('DOMContentLoaded', function() {
     highlightCurrentNav();
     initThemeToggle();
     initParticles();
+    initScrollHeader();
 });
+
+// 导航栏滚动变化
+function initScrollHeader() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+}

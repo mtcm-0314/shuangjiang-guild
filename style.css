@@ -1552,3 +1552,183 @@ body.dark-mode #cta-button {
         font-size: 1rem;
     }
 }
+
+/* ========== 打字机效果 ========== */
+.typewriter {
+    min-height: 2em;
+    border-right: 3px solid rgba(255, 255, 255, 0.8);
+    animation: blink-cursor 0.8s step-end infinite;
+}
+
+.typewriter.done {
+    border-right: none;
+    animation: none;
+}
+
+@keyframes blink-cursor {
+    0%, 100% { border-color: rgba(255, 255, 255, 0.8); }
+    50% { border-color: transparent; }
+}
+
+/* ========== 导航栏滚动变化 ========== */
+header {
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    padding: 0.5rem 2rem;
+    padding-left: 120px;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+header.scrolled nav a {
+    padding: 0.4rem 1.2rem;
+    font-size: 1rem;
+}
+
+body.dark-mode header.scrolled {
+    background: rgba(30, 30, 50, 0.9);
+}
+
+/* ========== 丰富的页脚 ========== */
+footer {
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.footer-section h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+.footer-section p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+/* 深色模式页脚 */
+body.dark-mode footer {
+    background: rgba(15, 15, 25, 0.95);
+}
+
+body.dark-mode .footer-bottom {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* ========== 移动端页脚适配 ========== */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 1.5rem;
+        text-align: center;
+    }
+
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-links a:hover {
+        transform: none;
+    }
+
+    header.scrolled {
+        padding: 0.4rem 1rem;
+        padding-left: 60px;
+    }
+
+    header.scrolled nav a {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+}

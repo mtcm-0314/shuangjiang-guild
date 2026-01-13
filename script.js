@@ -1,3 +1,20 @@
+// 打字机效果
+const typewriterText = '团结、荣耀、共同成长';
+let typewriterIndex = 0;
+
+function typeWriter() {
+    const element = document.getElementById('typewriter');
+    if (!element) return;
+    
+    if (typewriterIndex < typewriterText.length) {
+        element.textContent += typewriterText.charAt(typewriterIndex);
+        typewriterIndex++;
+        setTimeout(typeWriter, 150);
+    } else {
+        element.classList.add('done');
+    }
+}
+
 // 主页按钮跳转到时间轴页面
 const ctaButton = document.getElementById('cta-button');
 if (ctaButton) {
@@ -73,4 +90,5 @@ function openLightbox(src) {
 document.addEventListener('DOMContentLoaded', function() {
     loadAnnouncements();
     loadGallery();
+    setTimeout(typeWriter, 800);
 });
