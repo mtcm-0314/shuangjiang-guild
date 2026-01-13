@@ -137,6 +137,3 @@ document.addEventListener('DOMContentLoaded', function() {
     initThemeToggle();
     initParticles();
 });
-
-// 页面加载动画
-initPageLoader();
