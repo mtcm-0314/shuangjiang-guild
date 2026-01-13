@@ -8,9 +8,9 @@ const membersConfig = [
         "role": "会长"
     },
     {
-        "name": "成员2",
+        "name": "薯薯条",
         "file": "member2",
-        "role": "副会长"
+        "role": "成员"
     },
     {
         "name": "成员3",

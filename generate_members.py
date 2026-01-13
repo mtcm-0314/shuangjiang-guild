@@ -101,8 +101,17 @@ def main():
     generate_config(members)
     
     print()
-    print("完成！请执行以下命令推送更新：")
-    print("git add . && git commit -m \"更新成员\" && git push")
+    
+    # 自动执行 git 上传
+    print("正在上传到 GitHub...")
+    os.system('git add .')
+    os.system('git commit -m "更新成员配置"')
+    result = os.system('git push')
+    
+    if result == 0:
+        print("\n✓ 上传成功！网站将在几分钟后更新。")
+    else:
+        print("\n✗ 上传失败，请检查网络连接或手动执行 git push")
 
 if __name__ == '__main__':
     main()
