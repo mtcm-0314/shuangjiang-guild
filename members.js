@@ -21,8 +21,16 @@ function loadMembers(filter = '') {
         const card = document.createElement('div');
         card.className = 'member-card';
         
-        const roleClass = member.role === '会长' ? 'role-leader' : 
+        // 特殊成员判断
+        const isSpecial = member.file === 'member2';
+        const roleClass = isSpecial ? 'role-special' :
+                         member.role === '会长' ? 'role-leader' : 
                          member.role === '副会长' ? 'role-vice' : '';
+        
+        // 特殊成员卡片加特效类
+        if (isSpecial) {
+            card.classList.add('special-member-card');
+        }
         
         card.innerHTML = `
             <div class="member-card-image">
