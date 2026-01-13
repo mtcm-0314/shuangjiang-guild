@@ -1732,3 +1732,212 @@ body.dark-mode .footer-bottom {
         font-size: 0.8rem;
     }
 }
+
+/* ========== 5. 渐变文字 ========== */
+.hero h1,
+.members-section h1,
+.timeline-section h1,
+.member-info h1 {
+    background: linear-gradient(135deg, #fff 0%, #667eea 50%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+body.dark-mode .hero h1,
+body.dark-mode .members-section h1,
+body.dark-mode .timeline-section h1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f5af19 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ========== 6. 霓虹发光效果 ========== */
+#cta-button {
+    position: relative;
+    animation: neon-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes neon-glow {
+    from {
+        box-shadow: 0 0 10px rgba(102, 126, 234, 0.5),
+                    0 0 20px rgba(102, 126, 234, 0.3),
+                    0 0 30px rgba(102, 126, 234, 0.2);
+    }
+    to {
+        box-shadow: 0 0 15px rgba(118, 75, 162, 0.6),
+                    0 0 30px rgba(118, 75, 162, 0.4),
+                    0 0 45px rgba(118, 75, 162, 0.3);
+    }
+}
+
+.view-detail-btn {
+    animation: btn-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes btn-glow {
+    from {
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+    to {
+        box-shadow: 0 5px 25px rgba(118, 75, 162, 0.6);
+    }
+}
+
+/* 标题发光 */
+.hero h1 {
+    filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
+}
+
+/* ========== 7. 玻璃拟态增强 ========== */
+.hero,
+.members-section,
+.member-detail-card,
+.timeline-content,
+.announcement-section {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.member-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+body.dark-mode .hero,
+body.dark-mode .members-section,
+body.dark-mode .member-detail-card,
+body.dark-mode .timeline-content {
+    background: rgba(40, 40, 60, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .member-card {
+    background: rgba(50, 50, 70, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ========== 8. 自定义滚动条 ========== */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5a6fd6 0%, #6a4190 100%);
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Firefox 滚动条 */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #667eea rgba(0, 0, 0, 0.1);
+}
+
+/* ========== 9. 按钮点击波纹效果 ========== */
+.ripple-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(0);
+    animation: ripple-effect 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple-effect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* ========== 10. 图片悬停3D倾斜 ========== */
+.member-card-image {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.member-card-image img {
+    transition: transform 0.3s ease;
+}
+
+.tilt-effect {
+    transition: transform 0.1s ease;
+}
+
+/* ========== 11. 导航链接下划线动画 ========== */
+nav a {
+    position: relative;
+    overflow: hidden;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    transform: translateX(0);
+}
+
+nav a.active {
+    background: transparent;
+}
+
+body.dark-mode nav a::after {
+    background: linear-gradient(135deg, #667eea 0%, #f5af19 100%);
+}
+
+/* ========== 移动端适配 ========== */
+@media (max-width: 768px) {
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    nav a::after {
+        height: 2px;
+    }
+}

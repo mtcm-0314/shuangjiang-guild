@@ -137,6 +137,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initThemeToggle();
     initParticles();
     initScrollHeader();
+    initRippleEffect();
+    initTiltEffect();
 });
 
 // 导航栏滚动变化
@@ -150,5 +152,56 @@ function initScrollHeader() {
         } else {
             header.classList.remove('scrolled');
         }
+    });
+}
+
+// 按钮点击波纹效果
+function initRippleEffect() {
+    const buttons = document.querySelectorAll('button, .view-detail-btn, #cta-button, .nav-member-btn, .back-button');
+    
+    buttons.forEach(btn => {
+        btn.classList.add('ripple-btn');
+        btn.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
+}
+
+// 图片3D倾斜效果
+function initTiltEffect() {
+    const cards = document.querySelectorAll('.member-card-image');
+    
+    cards.forEach(card => {
+        const img = card.querySelector('img');
+        if (!img) return;
+        
+        card.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            img.style.transform = `scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            img.style.transform = 'scale(1) rotateX(0) rotateY(0)';
+        });
     });
 }
