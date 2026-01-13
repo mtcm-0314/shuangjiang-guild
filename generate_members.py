@@ -47,11 +47,8 @@ def scan_members():
             
             if len(lines) >= 1:
                 name = lines[0].strip()
-                # 第二行是职位，默认为"成员"
+                # 第二行直接作为职位，默认为"成员"
                 role = lines[1].strip() if len(lines) >= 2 else '成员'
-                # 验证职位
-                if role not in ['会长', '副会长', '成员']:
-                    role = '成员'
                 
                 members.append({
                     'name': name,

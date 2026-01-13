@@ -22,7 +22,7 @@ function loadMembers(filter = '') {
         card.className = 'member-card';
         
         const roleClass = member.role === '会长' ? 'role-leader' : 
-                         member.role === '副会长' ? 'role-vice' : 'role-member';
+                         member.role === '副会长' ? 'role-vice' : '';
         
         card.innerHTML = `
             <div class="member-card-image">

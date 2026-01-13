@@ -82,19 +82,18 @@ nav a:hover {
 /* 英雄区域 - 毛玻璃效果 */
 .hero {
     text-align: center;
-    padding: 80px 20px 100px;
-    min-height: auto;
+    padding: 200px 20px 100px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
 
     /* 毛玻璃效果 */
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px);
     border-radius: 30px;
-    margin: 100px 40px 40px;
+    margin: 40px;
     box-shadow:
         0 20px 40px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.6);
@@ -103,7 +102,7 @@ nav a:hover {
 
 .hero h1 {
     font-size: 4rem;
-    margin-bottom: 0;
+    margin-bottom: 1.5rem;
     color: white;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
@@ -112,7 +111,7 @@ nav a:hover {
     font-size: 1.8rem;
     color: rgba(255, 255, 255, 0.9);
     max-width: 600px;
-    margin: 0;
+    margin: 0 auto 3rem;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -138,8 +137,8 @@ nav a:hover {
 /* 响应式设计 */
 @media (max-width: 768px) {
     .hero {
-        margin: 80px 20px 20px;
-        padding: 80px 20px 60px;
+        margin: 20px;
+        padding: 150px 20px 60px;
     }
 
     .hero h1 {
@@ -1190,6 +1189,8 @@ img.loaded {
     font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
+    background: rgba(0, 0, 0, 0.1);
+    color: #666;
 }
 
 .role-leader {
@@ -1200,11 +1201,6 @@ img.loaded {
 .role-vice {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-}
-
-.role-member {
-    background: rgba(0, 0, 0, 0.1);
-    color: #666;
 }
 
 /* ========== 公告板样式 ========== */

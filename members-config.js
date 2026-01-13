@@ -10,7 +10,7 @@ const membersConfig = [
     {
         "name": "薯薯条",
         "file": "member2",
-        "role": "成员"
+        "role": "串子"
     },
     {
         "name": "成员3",
