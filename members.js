@@ -32,6 +32,9 @@ function loadMembers(filter = '') {
             card.classList.add('special-member-card');
         }
         
+        // 特殊成员名字加特效类
+        const nameClass = isSpecial ? 'special-member-name' : '';
+        
         card.innerHTML = `
             <div class="member-card-image">
                 <img src="members/${member.file}.jpg" alt="${member.name}" 
@@ -39,7 +42,7 @@ function loadMembers(filter = '') {
                      onload="this.classList.add('loaded')">
             </div>
             <span class="member-role ${roleClass}">${member.role}</span>
-            <h3>${member.name}</h3>
+            <h3 class="${nameClass}">${member.name}</h3>
             <button class="view-detail-btn" onclick="viewMember('${member.file}', '${member.name}')">查看详情</button>
         `;
         grid.appendChild(card);

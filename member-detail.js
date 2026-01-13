@@ -54,7 +54,12 @@ async function loadMemberDetail() {
     }
     
     // 设置成员名字
-    document.getElementById('member-name').textContent = decodeURIComponent(member.name);
+    const nameEl = document.getElementById('member-name');
+    const isSpecial = member.file === 'member2';
+    nameEl.textContent = decodeURIComponent(member.name);
+    if (isSpecial) {
+        nameEl.classList.add('special-member-name');
+    }
     document.title = `${decodeURIComponent(member.name)} - 成员详情`;
     
     // 加载图片（支持jpg和png格式）
@@ -81,8 +86,12 @@ async function loadMemberDetail() {
         if (response.ok) {
             const text = await response.text();
             const lines = text.split('\n').slice(2).filter(line => line.trim());
-            document.getElementById('member-description').innerHTML = 
-                lines.map(line => `<p>${line}</p>`).join('');
+            const descEl = document.getElementById('member-description');
+            descEl.innerHTML = lines.map(line => `<p>${line}</p>`).join('');
+            // 薯薯条专属渐变文字
+            if (isSpecial) {
+                descEl.classList.add('special-member-description');
+            }
         } else {
             document.getElementById('member-description').innerHTML = 
                 '<p>暂无个人介绍。</p>';

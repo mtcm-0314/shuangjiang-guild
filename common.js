@@ -53,14 +53,17 @@ function initPageLoader() {
     });
 }
 
-// 深色模式
+// 深色模式 - 放在导航栏里
 function initThemeToggle() {
-    const toggle = document.createElement('div');
-    toggle.className = 'theme-toggle';
-    toggle.innerHTML = '<button class="theme-btn" title="切换主题">🌙</button>';
-    document.body.appendChild(toggle);
+    const nav = document.querySelector('nav');
+    if (!nav) return;
     
-    const btn = toggle.querySelector('.theme-btn');
+    const btn = document.createElement('button');
+    btn.className = 'theme-btn-nav';
+    btn.title = '切换主题';
+    btn.textContent = '🌙';
+    nav.appendChild(btn);
+    
     const savedTheme = localStorage.getItem('theme');
     
     if (savedTheme === 'dark') {
