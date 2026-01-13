@@ -1145,3 +1145,410 @@ img.loaded {
         height: 180px;
     }
 }
+
+/* ========== 搜索框样式 ========== */
+.search-box {
+    max-width: 400px;
+    margin: 0 auto 2rem;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.3);
+    transform: translateY(-2px);
+}
+
+.search-box input::placeholder {
+    color: #999;
+}
+
+.no-results {
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+    padding: 3rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== 成员职位标签 ========== */
+.member-role {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.role-leader {
+    background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+    color: white;
+}
+
+.role-vice {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.role-member {
+    background: rgba(0, 0, 0, 0.1);
+    color: #666;
+}
+
+/* ========== 公告板样式 ========== */
+.announcement-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 40px;
+    margin-top: 100px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.announcement-section h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.announcement-section h2::before {
+    content: '📢';
+}
+
+.announcement-list {
+    list-style: none;
+}
+
+.announcement-item {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.announcement-item:last-child {
+    border-bottom: none;
+}
+
+.announcement-item:hover {
+    background: #f9f9f9;
+    border-radius: 10px;
+}
+
+.announcement-date {
+    color: #999;
+    font-size: 0.85rem;
+}
+
+/* ========== 图片画廊样式 ========== */
+.gallery-section {
+    padding: 60px 40px;
+}
+
+.gallery-section h2 {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    font-size: 0.9rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .caption {
+    transform: translateY(0);
+}
+
+/* 图片灯箱 */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.lightbox-close:hover {
+    transform: rotate(90deg);
+}
+
+/* ========== 深色模式 ========== */
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1001;
+}
+
+.theme-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+}
+
+/* 深色模式样式 */
+body.dark-mode {
+    background-color: #1a1a2e;
+}
+
+body.dark-mode::before {
+    background: linear-gradient(
+        to bottom right,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.3) 30%,
+        rgba(0, 0, 0, 0.5) 50%
+    );
+}
+
+body.dark-mode header {
+    background: rgba(30, 30, 50, 0.95);
+}
+
+body.dark-mode nav a {
+    color: #eee;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode nav a:hover,
+body.dark-mode nav a.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+body.dark-mode .hero,
+body.dark-mode .members-section {
+    background: rgba(30, 30, 50, 0.8);
+}
+
+body.dark-mode .member-card,
+body.dark-mode .announcement-section,
+body.dark-mode .member-detail-card,
+body.dark-mode .timeline-content {
+    background: rgba(40, 40, 60, 0.95);
+    color: #eee;
+}
+
+body.dark-mode .member-card h3,
+body.dark-mode .member-info h1,
+body.dark-mode .timeline-title,
+body.dark-mode .announcement-section h2 {
+    color: #eee;
+}
+
+body.dark-mode .member-description,
+body.dark-mode .timeline-description,
+body.dark-mode .announcement-item {
+    color: #ccc;
+}
+
+body.dark-mode footer {
+    background: rgba(20, 20, 35, 0.95);
+}
+
+body.dark-mode .search-box input {
+    background: rgba(40, 40, 60, 0.95);
+    color: #eee;
+}
+
+body.dark-mode .search-box input::placeholder {
+    color: #888;
+}
+
+body.dark-mode .music-btn,
+body.dark-mode .theme-btn,
+body.dark-mode .back-button,
+body.dark-mode .nav-member-btn,
+body.dark-mode #cta-button {
+    background: rgba(60, 60, 80, 0.95);
+    color: #eee;
+}
+
+/* ========== 粒子背景 ========== */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ========== 鼠标悬停特效增强 ========== */
+.member-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.member-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.member-card:hover::before {
+    left: 100%;
+}
+
+.view-detail-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.view-detail-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.view-detail-btn:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* ========== 移动端适配补充 ========== */
+@media (max-width: 768px) {
+    .search-box {
+        margin: 0 15px 1.5rem;
+        max-width: none;
+    }
+
+    .search-box input {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+
+    .announcement-section {
+        margin: 15px;
+        margin-top: 80px;
+        padding: 1.5rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .theme-toggle {
+        top: 0.6rem;
+        right: 0.6rem;
+    }
+
+    .theme-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 1rem;
+    }
+}
