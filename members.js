@@ -1,10 +1,6 @@
-// 成员列表配置（在这里添加你的成员）
-const members = [
-    { name: '成员1', file: 'member1', role: '会长' },
-    { name: '成员2', file: 'member2', role: '副会长' },
-    { name: '成员3', file: 'member3', role: '成员' },
-    { name: '成员4', file: 'member4', role: '成员' }
-];
+// 成员列表从配置文件加载
+// 配置文件由 generate_members.py 自动生成
+const members = typeof membersConfig !== 'undefined' ? membersConfig : [];
 
 // 动态生成成员卡片
 function loadMembers(filter = '') {

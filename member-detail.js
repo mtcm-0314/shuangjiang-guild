@@ -1,10 +1,5 @@
-// 成员列表（与members.js保持一致）
-const members = [
-    { name: '成员1', file: 'member1' },
-    { name: '成员2', file: 'member2' },
-    { name: '成员3', file: 'member3' },
-    { name: '成员4', file: 'member4' }
-];
+// 成员列表从配置文件加载
+const members = typeof membersConfig !== 'undefined' ? membersConfig : [];
 
 // 从URL获取成员信息
 function getMemberFromURL() {
@@ -80,13 +75,14 @@ async function loadMemberDetail() {
         };
     };
     
-    // 加载文本介绍
+    // 加载文本介绍（跳过前两行：名字和职位）
     try {
         const response = await fetch(`members/${member.file}.txt`);
         if (response.ok) {
             const text = await response.text();
+            const lines = text.split('\n').slice(2).filter(line => line.trim());
             document.getElementById('member-description').innerHTML = 
-                text.split('\n').filter(line => line.trim()).map(line => `<p>${line}</p>`).join('');
+                lines.map(line => `<p>${line}</p>`).join('');
         } else {
             document.getElementById('member-description').innerHTML = 
                 '<p>暂无个人介绍。</p>';
