@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="了解公会成员的详细信息">
+    <title>成员详情</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <!-- 背景音乐控制 -->
+        <div class="music-control">
+            <audio id="bgm" loop>
+                <source src="assets/QQ love.mp3" type="audio/mpeg">
+            </audio>
+            <button id="music-btn" class="music-btn" title="播放/暂停音乐">
+                <span class="music-icon">🎵</span>
+                <span class="music-status">播放</span>
+            </button>
+        </div>
+        <nav>
+            <a href="index.html">首页</a>
+            <a href="timeline.html">百业历程</a>
+            <a href="members.html">成员</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="member-detail-section">
+            <button class="back-button" onclick="window.location.href='members.html'">← 返回成员列表</button>
+            
+            <div class="member-detail-card fade-in">
+                <div class="member-image-container">
+                    <div class="image-loader"></div>
+                    <img id="member-image" src="" alt="成员照片" style="display:none;">
+                </div>
+                <div class="member-info">
+                    <h1 id="member-name">加载中...</h1>
+                    <div id="member-description" class="member-description">
+                        <p>正在加载成员信息...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="member-navigation">
+                <button id="prev-member" class="nav-member-btn">← 上一位成员</button>
+                <button id="next-member" class="nav-member-btn">下一位成员 →</button>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2026 霜降百业 | 携手共进，创造辉煌</p>
+    </footer>
+    
+    <script src="member-detail.js"></script>
+    <script src="music.js"></script>
+</body>
+</html>

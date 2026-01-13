@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="欢迎来到我们的游戏公会，这里有最团结的团队和最优秀的成员">
+    <title>公会主页</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <!-- 背景音乐控制 -->
+        <div class="music-control">
+            <audio id="bgm" loop>
+                <source src="assets/QQ love.mp3" type="audio/mpeg">
+            </audio>
+            <button id="music-btn" class="music-btn" title="播放/暂停音乐">
+                <span class="music-icon">🎵</span>
+                <span class="music-status">播放</span>
+            </button>
+        </div>
+        <nav>
+            <a href="index.html">首页</a>
+            <a href="timeline.html">百业历程</a>
+            <a href="members.html">成员</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <h1 class="fade-in">霜降</h1>
+            <p class="fade-in-delay">团结、荣耀、共同成长</p>
+            <button id="cta-button" class="fade-in-delay-2">了解更多</button>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2026 霜降百业 | 携手共进，创造辉煌</p>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="music.js"></script>
+</body>
+</html>
