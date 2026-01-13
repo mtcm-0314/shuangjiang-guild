@@ -13,9 +13,9 @@ const membersConfig = [
         "role": "串子"
     },
     {
-        "name": "成员3",
+        "name": "灰坊",
         "file": "member3",
-        "role": "成员"
+        "role": "挂机人"
     },
     {
         "name": "成员4",
