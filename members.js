@@ -2,10 +2,17 @@
 // 配置文件由 generate_members.py 自动生成
 const members = typeof membersConfig !== 'undefined' ? membersConfig : [];
 
-// 动态生成成员卡片
-function loadMembers(filter = '') {
+// 分页配置
+const MEMBERS_PER_PAGE = 6;
+let currentPage = 1;
+let currentFilter = '';
+
+// 动态生成成员卡片（带分页）
+function loadMembers(filter = '', page = 1) {
     const grid = document.getElementById('members-grid');
     grid.innerHTML = '';
+    currentFilter = filter;
+    currentPage = page;
     
     const filteredMembers = members.filter(member => 
         member.name.toLowerCase().includes(filter.toLowerCase()) ||
@@ -14,10 +21,17 @@ function loadMembers(filter = '') {
     
     if (filteredMembers.length === 0) {
         grid.innerHTML = '<p class="no-results">没有找到匹配的成员</p>';
+        updatePagination(0);
         return;
     }
     
-    filteredMembers.forEach(member => {
+    // 计算分页
+    const totalPages = Math.ceil(filteredMembers.length / MEMBERS_PER_PAGE);
+    const startIndex = (page - 1) * MEMBERS_PER_PAGE;
+    const endIndex = startIndex + MEMBERS_PER_PAGE;
+    const pageMembers = filteredMembers.slice(startIndex, endIndex);
+    
+    pageMembers.forEach(member => {
         const card = document.createElement('div');
         card.className = 'member-card';
         
@@ -47,6 +61,47 @@ function loadMembers(filter = '') {
         `;
         grid.appendChild(card);
     });
+    
+    updatePagination(totalPages);
+}
+
+// 更新分页控件
+function updatePagination(totalPages) {
+    let pagination = document.getElementById('pagination');
+    
+    if (!pagination) {
+        pagination = document.createElement('div');
+        pagination.id = 'pagination';
+        pagination.className = 'pagination';
+        document.getElementById('members-grid').after(pagination);
+    }
+    
+    if (totalPages <= 1) {
+        pagination.innerHTML = '';
+        return;
+    }
+    
+    let html = '';
+    
+    // 上一页
+    html += `<button class="page-btn" ${currentPage === 1 ? 'disabled' : ''} onclick="goToPage(${currentPage - 1})">‹</button>`;
+    
+    // 页码
+    for (let i = 1; i <= totalPages; i++) {
+        html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+    }
+    
+    // 下一页
+    html += `<button class="page-btn" ${currentPage === totalPages ? 'disabled' : ''} onclick="goToPage(${currentPage + 1})">›</button>`;
+    
+    pagination.innerHTML = html;
+}
+
+// 跳转页面
+function goToPage(page) {
+    loadMembers(currentFilter, page);
+    // 滚动到顶部
+    document.querySelector('.members-section').scrollIntoView({ behavior: 'smooth' });
 }
 
 // 跳转到成员详情页
@@ -59,7 +114,7 @@ function initSearch() {
     const searchInput = document.getElementById('member-search');
     if (searchInput) {
         searchInput.addEventListener('input', function() {
-            loadMembers(this.value);
+            loadMembers(this.value, 1); // 搜索时回到第一页
         });
     }
 }
