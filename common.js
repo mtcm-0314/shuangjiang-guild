@@ -34,7 +34,7 @@ function highlightCurrentNav() {
     });
 }
 
-// 页面加载动画
+// 页面加载动画 - 优化：去掉强制等待
 function initPageLoader() {
     const loader = document.createElement('div');
     loader.className = 'page-loader';
@@ -46,10 +46,9 @@ function initPageLoader() {
     `;
     document.body.prepend(loader);
     
+    // 页面加载完立即隐藏，不再强制等500ms
     window.addEventListener('load', function() {
-        setTimeout(() => {
-            loader.classList.add('hidden');
-        }, 500);
+        loader.classList.add('hidden');
     });
 }
 
@@ -79,7 +78,7 @@ function initThemeToggle() {
     });
 }
 
-// 粒子背景
+// 粒子背景 - 优化版本，减少粒子数量
 function initParticles() {
     const canvas = document.createElement('canvas');
     canvas.id = 'particles-canvas';
@@ -87,6 +86,7 @@ function initParticles() {
     
     const ctx = canvas.getContext('2d');
     let particles = [];
+    let animationId;
     
     function resize() {
         canvas.width = window.innerWidth;
@@ -97,21 +97,23 @@ function initParticles() {
         return {
             x: Math.random() * canvas.width,
             y: -10,
-            size: Math.random() * 3 + 1,
-            speedY: Math.random() * 1 + 0.5,
-            speedX: Math.random() * 0.5 - 0.25,
-            opacity: Math.random() * 0.5 + 0.3
+            size: Math.random() * 2 + 1,
+            speedY: Math.random() * 0.8 + 0.3,
+            speedX: Math.random() * 0.4 - 0.2,
+            opacity: Math.random() * 0.4 + 0.2
         };
     }
     
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        if (particles.length < 50 && Math.random() > 0.95) {
+        // 减少粒子数量：最多20个，生成概率降低
+        if (particles.length < 20 && Math.random() > 0.98) {
             particles.push(createParticle());
         }
         
-        particles.forEach((p, i) => {
+        for (let i = particles.length - 1; i >= 0; i--) {
+            const p = particles[i];
             p.y += p.speedY;
             p.x += p.speedX;
             
@@ -123,10 +125,19 @@ function initParticles() {
             if (p.y > canvas.height) {
                 particles.splice(i, 1);
             }
-        });
+        }
         
-        requestAnimationFrame(animate);
+        animationId = requestAnimationFrame(animate);
     }
+    
+    // 页面不可见时暂停动画
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            cancelAnimationFrame(animationId);
+        } else {
+            animate();
+        }
+    });
     
     resize();
     window.addEventListener('resize', resize);
