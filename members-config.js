@@ -3,7 +3,7 @@
 
 const membersConfig = [
     {
-        "name": "成员1",
+        "name": "蝉鸣知夏意",
         "file": "member1",
         "role": "会长"
     },
@@ -13,7 +13,7 @@ const membersConfig = [
         "role": "串子"
     },
     {
-        "name": "灰坊",
+        "name": "灰访",
         "file": "member3",
         "role": "挂机人"
     },
