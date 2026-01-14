@@ -18,13 +18,63 @@ const membersConfig = [
         "role": "挂机人"
     },
     {
-        "name": "成员4",
+        "name": "墨南凫",
         "file": "member4",
         "role": "成员"
     },
     {
-        "name": "成员5",
+        "name": "温蕴笙",
         "file": "member5",
+        "role": "成员"
+    },
+    {
+        "name": "只鸟随春归",
+        "file": "member6",
+        "role": "成员"
+    },
+    {
+        "name": "符涟尘",
+        "file": "member7",
+        "role": "成员"
+    },
+    {
+        "name": "殷荣华",
+        "file": "member8",
+        "role": "成员"
+    },
+    {
+        "name": "吴影",
+        "file": "member9",
+        "role": "成员"
+    },
+    {
+        "name": "月琉辉",
+        "file": "member10",
+        "role": "成员"
+    },
+    {
+        "name": "江坈",
+        "file": "member11",
+        "role": "成员"
+    },
+    {
+        "name": "凋季",
+        "file": "member12",
+        "role": "成员"
+    },
+    {
+        "name": "小曼莎",
+        "file": "member13",
+        "role": "成员"
+    },
+    {
+        "name": "冷库的yin",
+        "file": "member14",
+        "role": "成员"
+    },
+    {
+        "name": "御蜜",
+        "file": "member15",
         "role": "成员"
     }
 ];
